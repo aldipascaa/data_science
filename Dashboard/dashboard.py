@@ -1,13 +1,14 @@
 #Menyiapkan library
 import pandas as pd
 import streamlit as st
+import matplotlib.pyplot as plt
 import seaborn as sns 
 from babel.numbers import format_currency
 sns.set_style('darkgrid')
 
 #import seluruh dataset
 
-df = pd.read_csv('Dataset.csv')
+df = pd.read_csv('dataset.csv')
 
 #Membuat Komponen Filter
 

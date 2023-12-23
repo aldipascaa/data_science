@@ -78,8 +78,8 @@ bypayment_df = create_bypayment_df(main_df)
 
 st.write(
     """
-    # My First app
-    Hello
+    # E-Commerce Public Dataset
+    Analisis E-commerce dilihat dari Daily Order,  Best & Worst Performing Product, Customer Demographic, and Payment Method
     """
 )
 
@@ -114,14 +114,14 @@ fig, ax = plt.subplots(nrows=1, ncols=2, figsize=(35, 15))
 
 colors = ["#90CAF9", "#D3D3D3", "#D3D3D3", "#D3D3D3", "#D3D3D3"]
 
-sns.barplot(x="order_item_id", y="product_category_name_english", data=sum_order_items_df.head(5), palette=colors, ax=ax[0])
+sns.barplot(x="order_item_id", y="product_category_name_english", data=sum_order_items_df.head(5), palette='magma', ax=ax[0])
 ax[0].set_ylabel(None)
 ax[0].set_xlabel("Number of Sales", fontsize=30)
 ax[0].set_title("Best Performing Product", loc="center", fontsize=50)
 ax[0].tick_params(axis='y', labelsize=35)
 ax[0].tick_params(axis='x', labelsize=30)
 
-sns.barplot(x="order_item_id", y="product_category_name_english", data=sum_order_items_df.sort_values(by="order_item_id", ascending=True).head(5), palette=colors, ax=ax[1])
+sns.barplot(x="order_item_id", y="product_category_name_english", data=sum_order_items_df.sort_values(by="order_item_id", ascending=True).head(5), palette='viridis', ax=ax[1])
 ax[1].set_ylabel(None)
 ax[1].set_xlabel("Number of Sales", fontsize=30)
 ax[1].invert_xaxis()
@@ -155,7 +155,7 @@ fig, ax = plt.subplots(figsize=(20, 10))
 sns.barplot(
     x="payment_type", 
     y="customer_count",
-    data=bypayment_df.sort_values(by="customer_count", ascending=False),
+    data=bypayment_df.sort_values(by="customer_count", ascending=False)[0:4],
     palette='magma',
     ax=ax,
 )
